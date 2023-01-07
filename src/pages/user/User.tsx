@@ -15,11 +15,11 @@ import axios from 'axios'
 
 
 
-export interface User {createdAt:string,orgName:string,userName:string,email:string,phoneNumber:string,lastActiveDate:string,profile:{firstName:string,lastName:string,phoneNumber:string,avatar:string,gender:string,bvn:string,address:string,currency:string},guarantor:{firstName:string,lastName:string,phoneNumber:string,gender:string,address:string},accountBalance:string,accountNumber:string,socials:{facebook:string,instagram:string,twitter:string},education:{level:string,employmentStatus:string,sector:string,duration:string,officeEmail:string,monthlyIncome:string[],loanRepayment:string},id:string}
-type GetResponse = User[]
+export interface MyUser {createdAt:string,orgName:string,userName:string,email:string,phoneNumber:string,lastActiveDate:string,profile:{firstName:string,lastName:string,phoneNumber:string,avatar:string,gender:string,bvn:string,address:string,currency:string},guarantor:{firstName:string,lastName:string,phoneNumber:string,gender:string,address:string},accountBalance:string,accountNumber:string,socials:{facebook:string,instagram:string,twitter:string},education:{level:string,employmentStatus:string,sector:string,duration:string,officeEmail:string,monthlyIncome:string[],loanRepayment:string},id:string}
+type GetResponse = MyUser[]
 
 function User() {
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<MyUser[]>([])
   const [pageSize, setPageSize] = useState<number>(10)
   const [loading, setLoading] = useState<boolean>(false)
   const [length, setLength] = useState<number>(0)

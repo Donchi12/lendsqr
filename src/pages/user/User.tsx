@@ -15,11 +15,9 @@ import axios from 'axios'
 
 
 
-export interface MyUser {createdAt:string,orgName:string,userName:string,email:string,phoneNumber:string,lastActiveDate:string,profile:{firstName:string,lastName:string,phoneNumber:string,avatar:string,gender:string,bvn:string,address:string,currency:string},guarantor:{firstName:string,lastName:string,phoneNumber:string,gender:string,address:string},accountBalance:string,accountNumber:string,socials:{facebook:string,instagram:string,twitter:string},education:{level:string,employmentStatus:string,sector:string,duration:string,officeEmail:string,monthlyIncome:string[],loanRepayment:string},id:string}
-type GetResponse = MyUser[]
 
 function User() {
-  const [users, setUsers] = useState<MyUser[]>([])
+  const users = JSON.parse(localStorage.getItem("users") || "{}")
   const [pageSize, setPageSize] = useState<number>(10)
   const [loading, setLoading] = useState<boolean>(false)
   const [length, setLength] = useState<number>(0)
@@ -29,27 +27,6 @@ function User() {
 
 
 
-   useEffect(() => {
-     //fetch all users before the dom is painted pr component renders
-     const getUsers = async() =>{
-       setLoading(true)
-       try{
-         const {data} = await axios.get<GetResponse>("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
-        
-          //update the components user state
-         const sorted =  data.sort((a, b) => new Date(b.createdAt).getFullYear() - new Date(a.createdAt).getFullYear())
-         setUsers(sorted)
-        setLength(data.length)
-      
-        setLoading(false)
-       }catch(error){
-         setLoading(false)
-        console.log(error)
-      }
-     }
-    getUsers()
-    
-  }, [pageSize])
 
 
 

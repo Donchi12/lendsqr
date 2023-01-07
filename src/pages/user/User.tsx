@@ -9,8 +9,7 @@ import * as Icons from "react-icons/fa"
 import { HiOutlineDocument, HiOutlineUsers} from "react-icons/hi2"
 
 import axios from 'axios'
-import { file} from '../dashboard/temp'
-import { Outlet } from 'react-router-dom'
+
 
 
 
@@ -22,8 +21,6 @@ type GetResponse = User[]
 function User() {
   const [users, setUsers] = useState<User[]>([])
   const [pageSize, setPageSize] = useState<number>(10)
-  const [from, setFrom] = useState<number>(0)
-  const [to, setTo] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(false)
   const [length, setLength] = useState<number>(0)
 
@@ -32,27 +29,27 @@ function User() {
 
 
 
-  // useEffect(() => {
-  //   //fetch all users before the dom is painted pr component renders
-  //   const getUsers = async() =>{
-  //     setLoading(true)
-  //     try{
-  //       const {data} = await axios.get<GetResponse>("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
+   useEffect(() => {
+     //fetch all users before the dom is painted pr component renders
+     const getUsers = async() =>{
+       setLoading(true)
+       try{
+         const {data} = await axios.get<GetResponse>("https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users")
         
-  //        //update the components user state
-  //       const sorted =  data.sort((a, b) => new Date(b.createdAt).getFullYear() - new Date(a.createdAt).getFullYear())
-  //       setUsers(sorted)
-  //       setLength(data.length)
+          //update the components user state
+         const sorted =  data.sort((a, b) => new Date(b.createdAt).getFullYear() - new Date(a.createdAt).getFullYear())
+         setUsers(sorted)
+        setLength(data.length)
       
-  //       setLoading(false)
-  //     }catch(error){
-  //       setLoading(false)
-  //       console.log(error)
-  //     }
-  //   }
-  //   getUsers()
+        setLoading(false)
+       }catch(error){
+         setLoading(false)
+        console.log(error)
+      }
+     }
+    getUsers()
     
-  // }, [pageSize])
+  /}, [pageSize])
 
 
 
@@ -63,17 +60,17 @@ function User() {
     const thisYear = new Date().getFullYear()
     
     //users with loan
-    const usersWithLoan = file.filter(each  => each.education.loanRepayment)
+    const usersWithLoan = users.filter(each  => each.education.loanRepayment)
     //users with savings
-      const usersWithSaving = file.filter(each => each.accountBalance)
+      const usersWithSaving = users.filter(each => each.accountBalance)
       //active users (users that since the last 3 years)
-      const activeUsers = file.filter(each => {
+      const activeUsers = users.filter(each => {
         const userDate = new Date(each.lastActiveDate).getFullYear()  
         return userDate >= lastTwoYears && userDate <= thisYear && each.id 
       }
          )
          //total Users
-         const total = file.length
+         const total = users.length
       return {
          loanUsers : usersWithLoan,
          savingUsers: usersWithSaving,
@@ -118,7 +115,7 @@ function User() {
         </div>
        
         
-          <UserTable loading={loading}  data={file}   />
+          <UserTable loading={loading}  data={users}   />
         
       
     </div>

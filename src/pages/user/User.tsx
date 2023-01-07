@@ -37,11 +37,11 @@ function User() {
     const thisYear = new Date().getFullYear()
     
     //users with loan
-    const usersWithLoan = users.filter(each  => each.education.loanRepayment)
+    const usersWithLoan = users.filter((each:any) => each.education.loanRepayment)
     //users with savings
-      const usersWithSaving = users.filter(each => each.accountBalance)
+      const usersWithSaving = users.filter((each:any) => each.accountBalance)
       //active users (users that since the last 3 years)
-      const activeUsers = users.filter(each => {
+      const activeUsers = users.filter((each:any) => {
         const userDate = new Date(each.lastActiveDate).getFullYear()  
         return userDate >= lastTwoYears && userDate <= thisYear && each.id 
       }

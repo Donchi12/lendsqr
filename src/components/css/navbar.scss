@@ -1,0 +1,287 @@
+@import "../../global";
+
+
+.nav-container {
+    background-color: $bgColor;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    left: 40px;
+    box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.04);
+    .nav-wrapper{
+    display: flex;
+    width: 95%;
+    height: 15vh;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-logo{
+        img{
+            width: 120px;
+            height: 120px;
+        }
+
+        .toggle{
+            color: $textColor;
+           display: none;
+           justify-content: left;
+           align-items: flex-end;
+           
+          
+        }
+        
+    }
+    
+    
+    .nav-search{
+         flex: 0.60;
+        
+        .nav-search-input-wrapper{
+            width: 90%;  
+            display: flex;
+            align-items: center;
+            input{
+                border: 1px solid rgba(33, 63, 125, 1);
+                outline: none;
+                height: 40px;
+                width: 400px;
+                left: 343px;
+                top: 30px;
+                border-radius: 8px 0 0 8px;
+
+                &::placeholder{
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    padding-left: 7px;
+
+                }
+                &:hover{
+                    border: 1px solid $textColorPrimary;
+                   }
+            }
+            a{
+              color: $btnColor;
+               display: inline-block;
+               text-align: center;
+               background-color: $btnBgColor; 
+               padding: 11px 2px;
+               width: 10%; 
+               border-radius: 0  8px 8px 0; 
+               
+            }
+        }
+    }
+    .nav-search.mobile{
+        display: block;
+        position: absolute;
+        width: 92%;
+        top: 5rem;
+        left: 1rem;
+        a{  
+          padding: .7rem .5rem ;
+              
+        }
+    }
+ .nav-profile{
+      
+     display: flex;
+     align-items: center;
+     gap: 3rem;
+     position: relative; 
+     margin: 0 2rem 0 3rem;
+     justify-self: start;
+     .doc{
+         color:rgba(33, 63, 125, 1);
+         font-family: Roboto;
+         font-size: 16px;
+         font-weight: 400;
+         line-height: 19px;
+         letter-spacing: 0em;
+         text-align: left;
+
+         &:hover{
+             text-decoration: underline;
+         }
+        }
+        .icon{
+           color: $textColor;
+           display: none;
+           
+          
+       }
+     .nav-profile-wrapper{
+         display: flex;
+         gap: 1.5rem;
+         align-items: center;
+         .nav-bell{
+             color: $textColor;
+             cursor: pointer;
+         }
+         .nav-profile-content{
+        span{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 2rem 0;
+            
+            &:hover span{
+             text-decoration: underline;
+             
+            }
+            span{
+                color: $textColor;
+
+            }
+            .nav-profile-charet{
+                .nav-profile-show{
+                 rotate: 180deg;
+                 transition:all .5s linear;
+                }
+            }
+           
+            img{
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+            }
+        }
+    }
+     }
+
+     .dropdown{
+         position: absolute;
+         background-color: white;
+         width: 60%;
+         top: 105px;
+         border-radius: 0 0 10px 10px;
+         right: 0;
+         
+         .dropdown-content{
+             display: flex;
+             flex-direction: column;
+             gap: 1.5rem;
+             padding: 0 1rem;
+
+            .dropdown-link{
+               border: 1px solid $borderColor;
+               padding: .4rem;
+               display: inline-block;
+               border-radius: 10px;
+               color: $textColor;
+               border: 1px solid $btnBgColor;
+               transition: all .5s linear;
+               &:hover{
+                   background-color: $btnBgColor;
+                   color: $btnColor;
+               }
+               &.doc-link{
+                   display: none;
+               }
+            } 
+         }
+     }
+
+ }
+
+}
+
+    
+}
+
+@media only screen and (max-width: 768px) {
+   .nav-search{
+     display: none;
+   }
+   .nav-container{
+      height: 24vh;
+  .nav-wrapper{
+       .nav-logo{
+        margin-left: .7rem;
+        margin-top: 2.5rem;
+         .toggle{
+           margin-top: .7rem;
+           display: flex;
+           justify-content: left;
+           align-items: flex-end;
+           
+          
+        }
+    }
+   
+      .nav-profile{
+       display: flex;
+        align-items: center;
+        gap: 1rem;
+        position: relative; 
+        margin: 0 .5rem 0 3rem;
+        justify-self: start;
+      
+   .doc{
+         
+         display: none;
+   }
+         .icon{
+           color: $textColor;
+           display: inline-block;
+           
+          
+       }
+        .nav-profile-wrapper{
+            gap: 1rem;
+         .nav-profile-content{
+             .nav-profile-text, .nav-profile-charet{
+                 display: none;
+             }
+        
+      }
+      }
+      .dropdown{
+          width: 100%;
+           .dropdown-content{
+            
+
+            .dropdown-link{          
+               &.doc-link{
+                   display: inline-block;
+               }
+            } 
+      }
+      }
+      }
+  }
+   }
+  
+}
+@media only screen and (max-width: 900px) and (min-width: 768px){
+    .nav-container{
+        .nav-wrapper{
+
+            .nav-search.mobile{
+               display: block;
+               position: absolute;
+               width: 92%;
+               top: 7rem;
+               left: 2rem;
+               a{  
+                 padding: .7rem .5rem ;
+                     
+               }
+           }
+           .nav-logo{
+               margin-top: 5rem;
+               
+               .toggle{
+            margin-top: 1rem;
+           
+          
+        }
+        
+    }
+    
+        }
+    }
+}

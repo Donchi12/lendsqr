@@ -1,0 +1,11 @@
+@import  "../global";
+
+.alertCloseBtn{
+    background-color: $bgColor;
+     outline:none;
+     border: 1px solid $borderColor ;
+      &:focus {
+       outline: none;
+       border :none;
+      }
+}

@@ -1,0 +1,205 @@
+@import "../../global.scss";
+
+
+.sidebar-wrapper {
+    flex: 1;
+    border-right: 0.5px solid rgb(230, 227, 227);
+    min-height: 100vh;
+    background-color: white;
+    top: 15vh;
+    position: sticky;
+    overflow-y: scroll;
+    height: 100vh;
+    
+
+  .top {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6439ff;
+    }
+  }
+
+  
+  .center {
+    
+      
+      
+      ul {
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      .head-text{
+        margin: 1.5rem 0 1.5rem .2rem;
+        display: flex;
+        
+        align-items: center;
+        &:hover{
+            border-left: none;
+            background-color: white;
+        }
+        span{
+
+            color: rgba(33, 63, 125, 1);
+        }
+      }
+      .title {
+        color: rgba(84, 95, 125, 1);
+        margin-top: 2rem;
+        margin-bottom: 10px;
+        padding-left: 1.9rem;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14px;
+        letter-spacing: 0px;
+        text-align: left;
+
+
+      }
+
+      .link {
+        display: flex;
+        align-items: center;
+        padding: .9rem 0;
+        margin-left: .2rem;
+        cursor: pointer;
+        padding-left: 1.9rem;
+        margin-top: .2rem;
+          color:  rgba(33, 63, 125, 1);
+
+        
+         &:hover {
+             background-color: #f0faf8;
+             border-left: 3px solid $btnBgColor;
+             transition: all .5s linear;
+            }
+            &:hover .icon{
+          color: $textColor;
+        }
+        &:hover span{
+          color: $textColor;
+        }
+        
+        .icon {
+          font-size: 19px;
+         color:rgba(33, 63, 125, 1);
+        }
+
+        span{
+            font-size: 15px;
+            font-weight: 400;
+           color:rgba(33, 63, 125, 1);
+            margin-left: 12px;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19px;
+            letter-spacing: 0px;
+            text-align: left;
+
+        }
+      }
+      .act{
+         background-color: #f0faf8;
+         border-left: 3px solid $btnBgColor;
+         display: flex;
+        align-items: center;
+        padding: .9rem 0;
+        margin-left: .2rem;
+        cursor: pointer;
+        padding-left: 1.9rem;
+      
+        
+        .icon {
+          font-size: 19px;
+          color: #88849e;
+        }
+
+        span{
+            font-size: 15px;
+            font-weight: 400;
+            color: #88849e;
+            margin-left: 12px;
+        }
+      }
+    }
+  }
+
+  .bottom{
+      display: flex;
+      align-items: center;
+      margin: 10px;
+
+      .colorOption{
+          width: 20px;
+          height: 20px;
+          border-radius: 5px;
+          border: 1px solid #7451f8;
+          cursor: pointer;
+          margin: 5px;
+
+          &:nth-child(1){
+              background-color: whitesmoke;
+          }
+          &:nth-child(2){
+              background-color: #333;
+          }
+          &:nth-child(3){
+              background-color: darkblue;
+          }
+      }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar-wrapper.sidebar-show{
+    left: 0%;
+    transition: all 1s ease-in-out;
+  }
+  .sidebar-wrapper.sidebar-hide{
+    left: -70%;
+    transition: all 1s ease-in-out;
+  }
+   .sidebar-wrapper{
+     position: absolute;
+     top: 23vh;
+     left: -70%;
+      .center {
+       ul {
+      .head-text{
+      
+      padding-right: .7rem;
+      span{
+        margin-right: .3rem;
+      }
+      }
+      .title {   
+        padding-left: 1.5rem;
+
+      }
+      .link {
+    
+      padding: .9rem 0;
+      margin-left: .2rem;
+      
+      padding-left: 1rem;
+      
+    
+    
+
+      span{
+          
+          margin-left: 9px;
+      }
+    }
+      }
+   }
+   }
+  
+  
+}

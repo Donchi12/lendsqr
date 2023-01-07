@@ -13,10 +13,7 @@ type AppState = {
   }
 
 
-const AppContext = createContext<{
-  state:AppState,
-  dispatch: React.Dispatch<any>
-}>({state: initialState, dispatch: () => null})
+const AppContext = createContext<any>({state: initialState, dispatch: () => null})
 
 export const useAppContext = () => useContext(AppContext)
 

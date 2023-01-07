@@ -20,7 +20,7 @@ import UserFilter from "./UserFilter";
       status: string
 }
 
-function UserTable({ loading }) {
+function UserTable({ loading }:any) {
   const data = JSON.parse("users") || "{}"
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageSize, setPageSize] = useState(1);

@@ -49,7 +49,7 @@ function User() {
      }
     getUsers()
     
-  /}, [pageSize])
+  }, [pageSize])
 
 
 

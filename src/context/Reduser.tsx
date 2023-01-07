@@ -16,7 +16,7 @@ export const initialState = {
 
 type Action = { type: "TOGGLE", payload: ""}|{ type: "GETUSER", payload: ""}
 
- export const reducer = (state: AppState, action: Action) => {
+ export const reducer = (state: AppState, action: any) => {
   
      switch(action.type){
          case "TOGGLE":

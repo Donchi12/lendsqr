@@ -3,17 +3,13 @@ import * as Icons from "react-icons/bs";
 import { FaEye, FaUserCheck } from "react-icons/fa";
 import { TbUserX} from "react-icons/tb";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { User } from "../pages/dashboard/Dashboard";
+
 import "./css/userTable.scss"
 import useTable from "./hooks/useTable";
 import Pagination from "./Pagination";
 import UserFilter from "./UserFilter";
 
 
-type Data = {
-  data: User[],
-  loading: boolean,
-}
 
    type FilterType = {
      orgName: string,
@@ -24,8 +20,8 @@ type Data = {
       status: string
 }
 
-function UserTable({ data, loading }:Data) {
- 
+function UserTable({ loading }) {
+  const data = JSON.parse("users") || "{}"
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [pageSize, setPageSize] = useState(1);
   const { slice, range, setSlice } = useTable(data, pageSize, rowsPerPage);
